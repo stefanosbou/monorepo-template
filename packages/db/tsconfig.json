@@ -1,0 +1,13 @@
+{
+  "extends": "@humblebrag/tsconfig/base.json",
+  "include": ["src"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@db/*": ["./src/*"],
+      "@api/*": ["../../apps/api/src/*"]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@humblebrag/db",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./client": "./src/client.ts",
+    "./queries": "./src/queries/index.ts",
+    "./errors": "./src/errors.ts",
+    "./schema": "./src/schema.ts",
+    "./utils/search-query": "./src/utils/search-query.ts",
+    "./utils/health": "./src/utils/health.ts"
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "lint:fix": "biome format --write .",
+    "build": "tsc -p tsconfig.json && cp src/schema.sql dist/schema.sql || true",
+    "clean": "rm -rf dist node_modules",
+    "typecheck": "tsc --noEmit",
+    "migrate:dev": "drizzle-kit generate:sql --schema src/schema.ts --out migrations",
+    "migrate:plan": "drizzle-kit diff --schema src/schema.ts",
+    "migrate:generate": "drizzle-kit generate --config ./drizzle.config.ts",
+    "migrate:push": "drizzle-kit push --config ./drizzle.config.ts",
+    "migrate:up": "drizzle-kit migrate up --config ./drizzle.config.ts",
+    "migrate:down": "drizzle-kit migrate down --config ./drizzle.config.ts"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.1",
+    "pg": "^8.18.0"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.8",
+    "typescript": "catalog:typescript",
+    "@humblebrag/tsconfig": "workspace:*",
+    "@types/pg": "^8.16.0"
+  }
+}
