@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "drizzle-orm": "^0.45.1",
+    "drizzle-zod": "^0.8.3",
     "pg": "^8.18.0"
   },
   "devDependencies": {

@@ -1,16 +1,22 @@
 {
   "name": "@humblebrag/api",
-  "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "srvx"
+    "dev": "TZ=UTC PORT=3003 bun run --hot src/index.ts",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "find src -name '*.test.ts' -o -name '*.spec.ts' | grep -q . && bun test src || echo 'No tests yet'"
+  },
+  "exports": {
+    "./trpc/routers/_app": "./src/trpc/routers/_app.ts",
+    "./ai/types": "./src/ai/types.ts"
   },
   "dependencies": {
-    "hono": "^4.8.10",
-    "@repo/constants": "workspace:*"
+    "hono": "^4.8.10"
   },
   "devDependencies": {
-    "@types/node": "catalog:types",
+    "@types/bun": "latest",
     "srvx": "^0.8.7",
     "typescript": "catalog:typescript"
   }

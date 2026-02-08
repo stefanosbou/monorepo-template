@@ -1,4 +1,5 @@
 import { boolean, pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import type { InferSelectModel } from "drizzle-orm/table";
 
 export const todos = pgTable("todos", {
   id: uuid("id").defaultRandom().primaryKey().notNull(),
@@ -9,9 +10,4 @@ export const todos = pgTable("todos", {
     .notNull(),
 });
 
-export type TodoRow = {
-  id: string;
-  title: string;
-  completed: boolean;
-  createdAt: string;
-};
+export type TodoRow = InferSelectModel<typeof todos>;

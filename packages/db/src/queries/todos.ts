@@ -1,13 +1,16 @@
 import type { Database } from "@db/client";
 import { desc, eq } from "drizzle-orm";
-import { todos } from "../schema";
+import { type TodoRow, todos } from "../schema";
 
 export async function createTodo(db: Database, title: string) {
   const [row] = await db.insert(todos).values({ title }).returning();
   return row;
 }
 
-export async function getTodo(db: Database, id: string) {
+export async function getTodo(
+  db: Database,
+  id: string,
+): Promise<TodoRow | null> {
   const row = await db
     .select()
     .from(todos)
@@ -17,11 +20,14 @@ export async function getTodo(db: Database, id: string) {
   return row;
 }
 
-export async function listTodos(db: Database) {
+export async function listTodos(db: Database): Promise<TodoRow[]> {
   return db.select().from(todos).orderBy(desc(todos.createdAt));
 }
 
-export async function toggleTodo(db: Database, id: string) {
+export async function toggleTodo(
+  db: Database,
+  id: string,
+): Promise<TodoRow | null> {
   const current = await getTodo(db, id);
   if (!current) return null;
   await db
@@ -31,7 +37,7 @@ export async function toggleTodo(db: Database, id: string) {
   return getTodo(db, id);
 }
 
-export async function deleteTodo(db: Database, id: string) {
+export async function deleteTodo(db: Database, id: string): Promise<boolean> {
   await db.delete(todos).where(eq(todos.id, id));
   return true;
 }
