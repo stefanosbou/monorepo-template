@@ -30,9 +30,11 @@ app.openapi(
   }),
   async (c) => {
     const db = c.get("db");
-    const session = c.get("session");
+    // const session = c.get("session");
 
     const result = await listTodos(db);
+
+    console.log("Fetched todos:", result);
 
     return c.json(validateResponse({ data: result }, todosResponseSchema));
   },

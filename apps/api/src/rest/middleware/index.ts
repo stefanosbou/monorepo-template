@@ -1,20 +1,44 @@
-import type { Context } from "hono";
+import type { MiddlewareHandler } from "hono";
+import { rateLimiter } from "hono-rate-limiter";
+import { withAuth } from "./auth";
+import { withDatabase } from "./db";
+import { withClientIp } from "./ip";
+// import { withPrimaryReadAfterWrite } from "./primary-read-after-write";
 
-export const authMiddleware = async (
-  c: Context,
-  next: () => Promise<Response>,
-) => {
-  const auth = c.req.header("authorization");
-  if (!auth) return c.json({ error: "Unauthorized" }, 401);
+/**
+ * Public endpoint middleware - only attaches database with smart routing
+ * No authentication required
+ */
+export const publicMiddleware: MiddlewareHandler[] = [
+  withClientIp,
+  withDatabase,
+];
 
-  // Minimal example: accept any bearer token and attach a simple session
-  const token = auth.split(" ")[1];
-  // Attach session info to c.env or c.req as needed. Here we use c.req.
-  (c as any).session = token ? { userId: token } : null;
+/**
+ * Protected endpoint middleware - requires authentication
+ * Supports both API keys and OAuth tokens in a single unified middleware
+ * Note: withAuth must be first to set session in context
+ */
+export const protectedMiddleware: MiddlewareHandler[] = [
+  withClientIp,
+  withDatabase,
+  withAuth,
+  rateLimiter({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    limit: 100,
+    keyGenerator: (c) => {
+      return c.get("session")?.user?.id ?? "unknown";
+    },
+    statusCode: 429,
+    message: "Rate limit exceeded",
+  }),
+  // withPrimaryReadAfterWrite,
+];
 
-  return next();
-};
+export const fileMiddleware: MiddlewareHandler[] = [
+  withClientIp,
+  withDatabase,
+  withAuth,
+];
 
-export const protectedMiddleware = [authMiddleware];
-
-export { withRequiredScope } from "@api/rest/middleware/scope";
+export { withRequiredScope } from "./scope";

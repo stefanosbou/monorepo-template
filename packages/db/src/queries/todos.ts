@@ -21,7 +21,8 @@ export async function getTodo(
 }
 
 export async function listTodos(db: Database): Promise<TodoRow[]> {
-  return db.select().from(todos).orderBy(desc(todos.createdAt));
+  const res = await db.select().from(todos).orderBy(desc(todos.createdAt));
+  return res;
 }
 
 export async function toggleTodo(

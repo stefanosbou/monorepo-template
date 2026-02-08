@@ -11,12 +11,13 @@ const routers = new OpenAPIHono();
 // routers.route("/apps", new OpenAPIHono());
 
 // Mount the todos router as an example concrete router (public)
+
+// Apply protected middleware to subsequent routes
+routers.use(...protectedMiddleware);
+
+// Protected routes (minimal placeholders)
 routers.route("/todos", todosRouter);
 
-// // Apply protected middleware to subsequent routes
-// routers.use(...protectedMiddleware);
-
-// // Protected routes (minimal placeholders)
 // routers.route("/notifications", new OpenAPIHono());
 // routers.route("/transactions", new OpenAPIHono());
 // routers.route("/teams", new OpenAPIHono());

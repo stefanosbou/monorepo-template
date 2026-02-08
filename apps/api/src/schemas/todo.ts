@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const todosResponseSchema = z.object({
+export const todoResponseSchema = z.object({
   id: z.string().uuid().openapi({
     description: "Unique identifier of the todo",
     example: "123e4567-e89b-12d3-a456-426614174000",
@@ -32,4 +32,10 @@ export const todosResponseSchema = z.object({
   //     description: "Current subscription status of the team",
   //     example: "active",
   //   }),
+});
+
+export const todosResponseSchema = z.object({
+  data: z.array(todoResponseSchema).openapi({
+    description: "Array of todos that the user has access to",
+  }),
 });
