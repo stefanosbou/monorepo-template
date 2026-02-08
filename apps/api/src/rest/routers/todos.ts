@@ -34,8 +34,6 @@ app.openapi(
 
     const result = await listTodos(db);
 
-    console.log("Fetched todos:", result);
-
     return c.json(validateResponse({ data: result }, todosResponseSchema));
   },
 );
