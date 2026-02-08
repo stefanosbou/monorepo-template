@@ -30,9 +30,9 @@
     "start:dashboard": "turbo start --filter=@humblebrag/dashboard",
     "start:website": "turbo start --filter=@humblebrag/website",
     "dev:api": "turbo dev --filter=@humblebrag/api",
-    "dev:dashboard": "turbo dev --filter=@humblebrag/dashboard",
-    "build:dashboard": "turbo build --filter=@humblebrag/dashboard",
     "dev:website": "turbo dev --filter=@humblebrag/website ",
+    "dev:application": "turbo dev --filter=@humblebrag/application",
+    "build:dashboard": "turbo build --filter=@humblebrag/dashboard",
     "jobs:dashboard": "turbo jobs --filter=@humblebrag/jobs",
     "format": "biome format --write .",
     "lint": "turbo lint && manypkg check",
@@ -42,9 +42,8 @@
     "@biomejs/biome": "1.9.4",
     "@manypkg/cli": "^0.25.1",
     "turbo": "2.7.0",
-    "typescript": "^5.9.3",
-    "tailwindcss": "^4.1.18",
-    "autoprefixer": "^10.4.14"
+    "typescript": "^5.9.3"
   },
+  "type": "module",
   "packageManager": "bun@1.2.22"
 }

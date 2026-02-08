@@ -1,6 +1,7 @@
 {
   "extends": "@humblebrag/tsconfig/react-library.json",
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@humblebrag/ui/*": ["./src/*"]

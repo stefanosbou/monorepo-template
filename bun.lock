@@ -7,8 +7,6 @@
       "dependencies": {
         "@biomejs/biome": "1.9.4",
         "@manypkg/cli": "^0.25.1",
-        "autoprefixer": "^10.4.14",
-        "tailwindcss": "^4.1.18",
         "turbo": "2.7.0",
         "typescript": "^5.9.3",
       },
@@ -22,6 +20,26 @@
       "devDependencies": {
         "@types/node": "catalog:types",
         "srvx": "^0.8.7",
+        "typescript": "catalog:typescript",
+      },
+    },
+    "apps/application": {
+      "name": "@humblebrag/application",
+      "version": "0.1.0",
+      "dependencies": {
+        "@humblebrag/ui": "*",
+        "next": "catalog:next",
+        "radix-ui": "^1.4.3",
+        "react": "catalog:react",
+        "react-dom": "catalog:react",
+      },
+      "devDependencies": {
+        "@humblebrag/tsconfig": "workspace:*",
+        "@tailwindcss/postcss": "^4.1.18",
+        "@types/node": "catalog:types",
+        "@types/react": "catalog:types",
+        "@types/react-dom": "catalog:types",
+        "tailwindcss": "^4.1.18",
         "typescript": "catalog:typescript",
       },
     },
@@ -131,6 +149,8 @@
     "@floating-ui/utils": ["@floating-ui/utils@0.2.10", "", {}, "sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ=="],
 
     "@humblebrag/api": ["@humblebrag/api@workspace:apps/api"],
+
+    "@humblebrag/application": ["@humblebrag/application@workspace:apps/application"],
 
     "@humblebrag/tsconfig": ["@humblebrag/tsconfig@workspace:packages/tsconfig"],
 
