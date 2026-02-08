@@ -5,33 +5,18 @@ export const todoResponseSchema = z.object({
     description: "Unique identifier of the todo",
     example: "123e4567-e89b-12d3-a456-426614174000",
   }),
-  name: z.string().openapi({
-    description: "Name of the team or organization",
-    example: "Acme Corporation",
+  title: z.string().openapi({
+    description: "Title of the todo",
+    example: "Buy groceries",
   }),
-  logoUrl: z.string().url().nullable().openapi({
-    description: "URL to the team's logo image",
-    example: "https://cdn.midday.ai/logos/acme-corp.png",
+  completed: z.boolean().openapi({
+    description: "Whether the todo is completed or not",
+    example: false,
   }),
-  plan: z.enum(["trial", "starter", "pro"]).openapi({
-    description: "Current subscription plan of the team",
-    example: "pro",
+  createdAt: z.date().openapi({
+    description: "ISO timestamp of when the todo was created",
+    example: "2024-01-01T12:00:00Z",
   }),
-  // subscriptionStatus: z
-  //   .enum([
-  //     "active",
-  //     "canceled",
-  //     "past_due",
-  //     "unpaid",
-  //     "trialing",
-  //     "incomplete",
-  //     "incomplete_expired",
-  //   ])
-  //   .nullable()
-  //   .openapi({
-  //     description: "Current subscription status of the team",
-  //     example: "active",
-  //   }),
 });
 
 export const todosResponseSchema = z.object({
