@@ -1,0 +1,17 @@
+{
+  "name": "@humblebrag/api",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "srvx"
+  },
+  "dependencies": {
+    "hono": "^4.8.10",
+    "@repo/constants": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:types",
+    "srvx": "^0.8.7",
+    "typescript": "catalog:typescript"
+  }
+}

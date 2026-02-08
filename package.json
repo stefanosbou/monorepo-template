@@ -1,0 +1,50 @@
+{
+  "name": "humblebrag",
+  "private": true,
+  "workspaces": {
+    "packages": ["packages/*", "apps/*"],
+    "catalogs": {
+      "react": {
+        "react": "^19.2.1",
+        "react-dom": "^19.2.1"
+      },
+      "typescript": {
+        "typescript": "^5.9.3"
+      },
+      "types": {
+        "@types/node": "^25.2.2",
+        "@types/react": "^19.2.13",
+        "@types/react-dom": "^19.2.3"
+      },
+      "next": {
+        "next": "^16.0.10"
+      }
+    }
+  },
+  "scripts": {
+    "build": "turbo build",
+    "clean": "git clean -xdf node_modules",
+    "clean:workspaces": "turbo clean",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo test --parallel",
+    "start:dashboard": "turbo start --filter=@humblebrag/dashboard",
+    "start:website": "turbo start --filter=@humblebrag/website",
+    "dev:api": "turbo dev --filter=@humblebrag/api",
+    "dev:dashboard": "turbo dev --filter=@humblebrag/dashboard",
+    "build:dashboard": "turbo build --filter=@humblebrag/dashboard",
+    "dev:website": "turbo dev --filter=@humblebrag/website ",
+    "jobs:dashboard": "turbo jobs --filter=@humblebrag/jobs",
+    "format": "biome format --write .",
+    "lint": "turbo lint && manypkg check",
+    "typecheck": "turbo typecheck"
+  },
+  "dependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@manypkg/cli": "^0.25.1",
+    "turbo": "2.7.0",
+    "typescript": "^5.9.3",
+    "tailwindcss": "^4.1.18",
+    "autoprefixer": "^10.4.14"
+  },
+  "packageManager": "bun@1.2.22"
+}
