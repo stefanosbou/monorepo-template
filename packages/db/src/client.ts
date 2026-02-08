@@ -24,6 +24,8 @@ export const connectDb = async () => {
   return primaryDb;
 };
 
+export const db = primaryDb;
+
 export type Database = Awaited<ReturnType<typeof connectDb>>;
 export type TransactionClient = PgTransaction<
   NodePgQueryResultHKT,
@@ -32,4 +34,7 @@ export type TransactionClient = PgTransaction<
 >;
 export type DatabaseOrTransaction = Database | TransactionClient;
 
-export default { connectDb, primaryDb };
+export type DatabaseWithPrimary = Database & {
+  $primary?: Database;
+  usePrimaryOnly?: () => Database;
+};
