@@ -1,4 +1,4 @@
-import { listTodos } from "@db/queries";
+import { createTodo, listTodos } from "@db/queries";
 import z from "zod";
 import { createTRPCRouter, publicProcedure } from "../init";
 
@@ -9,8 +9,9 @@ export const todosRouter = createTRPCRouter({
   }),
   create: publicProcedure
     .input(z.object({ title: z.string() }))
-    .mutation(async ({ ctx, input }) => {
-      return null;
+    .mutation(async ({ ctx: { db }, input }) => {
+      const result = await createTodo(db, input.title);
+      return result;
     }),
   // toggle: publicProcedure
   //   .input(z.object({ id: z.string() }))

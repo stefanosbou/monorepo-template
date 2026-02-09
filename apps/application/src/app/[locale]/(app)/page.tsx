@@ -1,3 +1,4 @@
+import { CreateTodo } from "@/components/create-todo";
 import { HydrateClient, getQueryClient, trpc } from "@/trpc/server";
 import { Button } from "@humblebrag/ui/components/button";
 import type { Metadata } from "next";
@@ -36,7 +37,7 @@ export default async function Todos() {
             <>
               <span className="text-sm text-[#878787] mb-4">Todos</span>
               <div className="max-h-[260px] overflow-y-auto">
-                <p>{JSON.stringify(todos)}</p>
+                <p>{JSON.stringify(todos, null, 2)}</p>
               </div>
             </>
           )}
@@ -45,11 +46,7 @@ export default async function Todos() {
             <span className="absolute left-1/2 -translate-x-1/2 text-sm text-[#878787] bg-background -top-3 px-4">
               Or
             </span>
-            <Link href="/todos/create" className="w-full">
-              <Button className="w-full mt-2" variant="outline">
-                Create todo
-              </Button>
-            </Link>
+            <CreateTodo />
           </div>
         </div>
       </div>
