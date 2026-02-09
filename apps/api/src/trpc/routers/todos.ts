@@ -1,10 +1,11 @@
+import { listTodos } from "@db/queries";
 import z from "zod";
 import { createTRPCRouter, publicProcedure } from "../init";
 
 export const todosRouter = createTRPCRouter({
-  getAll: publicProcedure.query(async ({ ctx }) => {
-    // const todos = await ctx.db.todos.findMany();
-    return [];
+  getAll: publicProcedure.query(async ({ ctx: { db } }) => {
+    const result = await listTodos(db);
+    return result;
   }),
   create: publicProcedure
     .input(z.object({ title: z.string() }))

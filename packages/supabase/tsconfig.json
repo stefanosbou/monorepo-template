@@ -1,0 +1,9 @@
+{
+  "extends": "@humblebrag/tsconfig/base.json",
+  "compilerOptions": {
+    "ignoreDeprecations": "6.0",
+    "baseUrl": "."
+  },
+  "include": ["src", "."],
+  "exclude": ["node_modules"]
+}

@@ -13,11 +13,18 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@humblebrag/ui": "*",
+    "@humblebrag/api": "workspace:*",
+    "@humblebrag/supabase": "workspace:*",
+    "@humblebrag/ui": "workspace:*",
+    "@tanstack/react-query": "^5.90.20",
+    "@trpc/client": "^11.9.0",
+    "@trpc/tanstack-react-query": "^11.9.0",
     "next": "catalog:next",
+    "next-international": "^1.3.1",
     "radix-ui": "^1.4.3",
     "react": "catalog:react",
-    "react-dom": "catalog:react"
+    "react-dom": "catalog:react",
+    "superjson": "^2.2.6"
   },
   "devDependencies": {
     "@humblebrag/tsconfig": "workspace:*",

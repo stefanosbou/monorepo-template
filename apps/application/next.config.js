@@ -1,6 +1,37 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ["@humblebrag/ui"],
+/** @type {import("next").NextConfig} */
+const config = {
+  poweredByHeader: false,
+  reactStrictMode: true,
+  experimental: {
+    optimizePackageImports: [
+      "lucide-react",
+      "react-icons",
+      "date-fns",
+      "framer-motion",
+      "recharts",
+      "usehooks-ts",
+    ],
+  },
+
+  transpilePackages: ["@humblebrag/ui", "@humblebrag/api"],
+  serverExternalPackages: ["pino"],
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  devIndicators: false,
+  async headers() {
+    return [
+      {
+        source: "/((?!api/proxy).*)",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+        ],
+      },
+    ];
+  },
 };
 
-export default nextConfig;
+export default config;
