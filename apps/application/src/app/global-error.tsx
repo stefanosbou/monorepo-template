@@ -1,9 +1,7 @@
 "use client";
 
-// import { CopyInput } from "@/components/copy-input";
-// import "@/styles/globals.css";
 import { SUPPORT_EMAIL } from "@/utils/constants";
-import { Button } from "@humblebrag/ui/components/button";
+import { Button } from "@humblebrag/ui/components/ui/button";
 import { useEffect } from "react";
 // suppress missing module/type declarations for this side-effect CSS import
 // @ts-ignore

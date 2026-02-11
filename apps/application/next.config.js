@@ -13,7 +13,7 @@ const config = {
     ],
   },
 
-  transpilePackages: ["@humblebrag/ui", "@humblebrag/api"],
+  transpilePackages: ["@humblebrag/ui", "@humblebrag/api", "@humblebrag/ai"],
   serverExternalPackages: ["pino"],
   typescript: {
     ignoreBuildErrors: true,

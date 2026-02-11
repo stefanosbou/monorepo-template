@@ -1,3 +1,4 @@
+import { cn } from "@humblebrag/ui/lib/utils";
 // import { Provider as Analytics } from "@midday/events/client";
 // import { Toaster } from "@midday/ui/toaster";
 import type { Metadata } from "next";
@@ -8,7 +9,6 @@ import { Providers } from "./providers";
 // suppress missing module/type declarations for this side-effect CSS import
 // @ts-ignore
 import "@humblebrag/ui/globals.css";
-import { cn } from "@humblebrag/ui/lib/utils";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://app.humblebrag.so"),
@@ -95,6 +95,7 @@ export default async function Layout({
         className={cn(
           `${inter.variable} ${hedvigSerif.variable} font-sans`,
           "whitespace-pre-line overscroll-none antialiased",
+          "mx-auto max-w-4xl",
         )}
       >
         {/* <NuqsAdapter> */}

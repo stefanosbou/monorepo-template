@@ -2,11 +2,13 @@
   "extends": "@humblebrag/tsconfig/react-library.json",
   "compilerOptions": {
     "ignoreDeprecations": "6.0",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "baseUrl": ".",
     "paths": {
       "@humblebrag/ui/*": ["./src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "../ai/src/components/assistan-ui-demo.tsx"],
   "exclude": ["node_modules"]
 }

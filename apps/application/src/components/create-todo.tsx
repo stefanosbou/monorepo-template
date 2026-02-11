@@ -2,8 +2,8 @@
 
 import { revalidateAfterTodoChange } from "@/actions/revalidate-action";
 import { useTRPC } from "@/trpc/client";
-import { Button } from "@humblebrag/ui/components/button";
-import { Input } from "@humblebrag/ui/components/input";
+import { Button } from "@humblebrag/ui/components/ui/button";
+import { Input } from "@humblebrag/ui/components/ui/input";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 

@@ -8,8 +8,7 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@humblebrag/ui/*": ["../../packages/ui/src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "include": [

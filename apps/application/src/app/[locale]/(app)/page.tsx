@@ -1,6 +1,5 @@
 import { CreateTodo } from "@/components/create-todo";
 import { HydrateClient, getQueryClient, trpc } from "@/trpc/server";
-import { Button } from "@humblebrag/ui/components/button";
 import type { Metadata } from "next";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { SUPPORT_EMAIL } from "@/utils/constants";
-import { Button } from "@humblebrag/ui/components/button";
+import { Button } from "@humblebrag/ui/components/ui/button";
 import Link from "next/link";
 import { useEffect } from "react";
 

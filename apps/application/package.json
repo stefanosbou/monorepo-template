@@ -13,6 +13,7 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@humblebrag/ai": "workspace:*",
     "@humblebrag/api": "workspace:*",
     "@humblebrag/supabase": "workspace:*",
     "@humblebrag/ui": "workspace:*",

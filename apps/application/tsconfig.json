@@ -4,8 +4,7 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@humblebrag/ui/*": ["../../packages/ui/src/*"]
+      "@/*": ["./src/*"]
     },
     "strict": true
   },

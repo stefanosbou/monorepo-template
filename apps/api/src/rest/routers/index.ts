@@ -1,5 +1,6 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
 import { protectedMiddleware } from "../middleware";
+import { chatRouter } from "./chat";
 import { todosRouter } from "./todos";
 
 const routers = new OpenAPIHono();
@@ -17,6 +18,7 @@ routers.use(...protectedMiddleware);
 
 // Protected routes (minimal placeholders)
 routers.route("/todos", todosRouter);
+routers.route("/chat", chatRouter);
 
 // routers.route("/notifications", new OpenAPIHono());
 // routers.route("/transactions", new OpenAPIHono());
