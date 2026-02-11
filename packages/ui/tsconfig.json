@@ -1,7 +1,6 @@
 {
   "extends": "@humblebrag/tsconfig/react-library.json",
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
     "module": "ESNext",
     "moduleResolution": "bundler",
     "baseUrl": ".",
