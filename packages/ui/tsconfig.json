@@ -8,6 +8,6 @@
       "@humblebrag/ui/*": ["./src/*"]
     }
   },
-  "include": ["src", "../ai/src/components/assistan-ui-demo.tsx"],
+  "include": ["src"],
   "exclude": ["node_modules"]
 }
