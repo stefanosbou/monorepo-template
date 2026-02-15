@@ -12,7 +12,7 @@ import { withRequiredScope } from "../middleware";
 const app = new OpenAPIHono<Context>();
 
 const THREAD_ID = "example-user-id";
-const RESOURCE_ID = "weather-chat";
+const RESOURCE_ID = "default";
 
 app.post("/", withRequiredScope("chat.write"), async (c) => {
   const params = await c.req.json();

@@ -1,1 +1,7 @@
-export { PlusIcon, X, GlobeIcon, CheckIcon } from "lucide-react";
+export {
+  PlusIcon,
+  X,
+  GlobeIcon,
+  CheckIcon,
+  ChevronRightIcon,
+} from "lucide-react";
